@@ -1184,7 +1184,7 @@
       if ( !options ) {
         return this;
       }
-
+alert(options);
       //  Storing the plugin natives
       var natives = options._natives = {},
           compose = "",
