@@ -26,6 +26,8 @@
    */
 
   Popcorn.forEach( [ "footnote", "text" ], function( name ) {
+  
+
 
     Popcorn.plugin( name , {
 
