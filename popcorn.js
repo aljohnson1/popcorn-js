@@ -763,8 +763,7 @@
 
     track.start = Popcorn.util.toSeconds( track.start, obj.options.framerate );
     track.end   = Popcorn.util.toSeconds( track.end, obj.options.framerate );
-    //track.pause = Popcorn.util.toSeconds( track.pause,obj.options.framerate);  // new pause feature.
-
+    
     //  Store this definition in an array sorted by times
     var byStart = obj.data.trackEvents.byStart,
         byEnd = obj.data.trackEvents.byEnd,
@@ -979,24 +978,17 @@
           if ( byStart.end > currentTime &&
                 byStart._running === false &&
                   obj.data.disabled.indexOf( type ) === -1 ) {
-//--------------------------------------------------------------------
+
             byStart._running = true;
             
             if ( byStart.pause ) {
               window.setTimeout(function(){
                obj.play();
-              }, byStart.pause );
+              }, byStart.pause * 1000 );
               obj.pause();
             }
             
-            
-           // if ( tracks.pause ) {
-            //  window.setTimeout(function(){
-            //   obj.play();
-            //  }, tracks.pause );
-            //  obj.pause();
-           // }
-            
+                                 
             natives.start.call( obj, event, byStart );
 
             // If the `frameAnimation` option is used,
@@ -1162,7 +1154,6 @@
   
   Popcorn.plugin = function( name, definition, manifest ) {
   
-//alert("Pluging function for start");
 
     if ( Popcorn.protect.natives.indexOf( name.toLowerCase() ) >= 0 ) {
       Popcorn.error( "'" + name + "' is a protected function name" );
@@ -1246,8 +1237,7 @@ alert(options);
       if ( !( "start" in options ) ) {
         options.start = 0;
         
-        alert("checking start option");
-        
+               
       }
 
       if ( !( "end" in options ) ) {
