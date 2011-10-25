@@ -988,14 +988,6 @@
 
             byStart._running = true;
             
-            if ( byStart.pause ) {
-              window.setTimeout(function(){
-               obj.play();
-              }, byStart.pause * 1000 );
-              obj.pause();
-            }
-            
-                                 
             natives.start.call( obj, event, byStart );
 
             // If the `frameAnimation` option is used,
@@ -1199,13 +1191,10 @@
     });
 
     var pluginFn = function( setup, options ) {
-//----------------------------------------------------------------------------------------------------------------
-      if ( !options ) {
+    if ( !options ) {
         return this;
       }
-      
-      //alert("testing");
-
+    
       //  Storing the plugin natives
       var natives = options._natives = {},
           compose = "",
@@ -1290,7 +1279,6 @@
       return this;
     };
 
-//----------------------------------------------------------------------------------------------------------------------
 
     //  Assign new named definition
     plugin[ name ] = function( options ) {
