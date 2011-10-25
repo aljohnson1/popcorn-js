@@ -27,7 +27,7 @@ test("Popcorn Google Feed Plugin", function () {
     end: 2, // seconds
     target: "feed",
     url: "http://zenit.senecac.on.ca/~chris.tyler/planet/rss20.xml",
-    title: "Planet Feed",
+    title: "Planet Feed"
 	})
 	.googlefeed({
     start: 2, // seconds

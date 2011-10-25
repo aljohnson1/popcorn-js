@@ -44,7 +44,7 @@ test( "Popcorn YouTube Plugin Event Tests", function() {
   popcorn.exec(2, function() {
     ok( popcorn.currentTime() >= 2, "Check time synchronization." );
     plus();
-    ok( popcorn.video.paused == false, "Video is not paused" );
+    ok( popcorn.video.paused === false, "Video is not paused" );
     plus();
   });
   popcorn.exec(49, function() {
@@ -194,28 +194,28 @@ test( "Popcorn YouTube Plugin Url Regex Test", function() {
   var urlTests = [
     { name: 'standard',
       url: 'http://www.youtube.com/watch?v=9oar9glUCL0',
-      expected: '9oar9glUCL0',
+      expected: '9oar9glUCL0'
     },
     { name: 'share url',
       url: 'http://youtu.be/9oar9glUCL0',
-      expected: '9oar9glUCL0',
+      expected: '9oar9glUCL0'
     },
     { name: 'long embed',
       url: 'http://www.youtube.com/embed/9oar9glUCL0',
-      expected: '9oar9glUCL0',
+      expected: '9oar9glUCL0'
     },
     { name: 'short embed 1 (e)',
       url: 'http://www.youtube.com/e/9oar9glUCL0',
-      expected: '9oar9glUCL0',
+      expected: '9oar9glUCL0'
     },
     { name: 'short embed 2 (v)',
       url: 'http://www.youtube.com/v/9oar9glUCL0',
-      expected: '9oar9glUCL0',
+      expected: '9oar9glUCL0'
     },
     { name: 'contains underscore',
       url: 'http://www.youtube.com/v/GP53b__h4ew',
-      expected: 'GP53b__h4ew',
-    },
+      expected: 'GP53b__h4ew'
+    }
   ];
 
   expect( urlTests.length );

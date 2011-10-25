@@ -15,12 +15,13 @@ test("Popcorn LinkedIn Plugin", function () {
     
     expect( expects );
     
-    function plus() {
+    //function plus(){
+    var plus = function(){
   
       if ( ++count === expects ) {
         start();
       }
-    }
+    };
   
     stop();
    

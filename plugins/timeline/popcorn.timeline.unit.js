@@ -2,7 +2,8 @@ test("Popcorn Timeline Plugin", function () {
   
   var popped = Popcorn( "#video" ),
       expects = 17,
-      upIds = downIds = [], 
+      upIds = [],
+      downIds = [], 
       count = 0,
       timelineUp = document.getElementById( "timeline-up" ),
       timelineDown = document.getElementById( "timeline-down" );
@@ -107,12 +108,15 @@ test("Popcorn Timeline Plugin", function () {
         document.getElementById( "timelineDiv4" ).style.display !== "none", "Both timelines in 'timeline-down' are not visible" );
 	  plus();
     
-    var uid, did;
-    while ( uid = upIds.pop() ) {
-      popped.removeTrackEvent( uid );
+    var uid, did, i;
+    for( i = 0; i < upIds.length; i ++){
+      uid = upIds.pop();
+      popped.removeTrackEvent(uid);
     }
-    while ( did = downIds.pop() ) {
-      popped.removeTrackEvent( did );
+        
+    for( i = 0; i < downIds.length; i ++){
+      did = downIds.pop();
+      popped.removeTrackEvent(did);
     }
     
     popped.pause();

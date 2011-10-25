@@ -9,7 +9,7 @@ test("Popcorn Vimeo Plugin", function () {
           ok( true, "Event '"+evtName+"' is supported" );
           plus();
         }
-      }
+      };
     })();
   }
   
@@ -141,7 +141,7 @@ test("Popcorn Vimeo Plugin", function () {
   
   popped.timingTest({
     start: 3, // seconds
-    end: 4, // seconds
+    end: 4 // seconds
   });
   
   popped.listen( "load", function() {

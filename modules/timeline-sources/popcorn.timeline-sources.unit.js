@@ -68,7 +68,7 @@
 
     p.exec( 10.5, function() {
       equals( endCalled, 5, "end was called 5 times from the parsed data" );
-      plus()
+      plus();
     });
 
     equals( setupCalled, 5, "setup was called 5 times from the parsed data" );

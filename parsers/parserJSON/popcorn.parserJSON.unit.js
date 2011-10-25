@@ -60,7 +60,7 @@ test("Popcorn 0.3 JSON Parser Plugin", function () {
       plus();
 
 
-      equals( $("#video-iframe-container").children().length, 2, '$("#video-iframe-container").children().length' )
+      equals( $("#video-iframe-container").children().length, 2, '$("#video-iframe-container").children().length' );
       plus();
       equals( $("#video-map-container").children().length, 1, '$("#video-map-container").children().length'  );
       plus();
@@ -72,7 +72,7 @@ test("Popcorn 0.3 JSON Parser Plugin", function () {
     }
   });
 
-  poppercorn.currentTime(0).play()
+  poppercorn.currentTime(0).play();
 });
 
 test("Popcorn 0.3 JSON Parser Plugin - AUDIO", function () {

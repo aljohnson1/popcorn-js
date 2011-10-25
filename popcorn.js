@@ -772,6 +772,13 @@
     for ( idx = byStart.length - 1; idx >= 0; idx-- ) {
 
       if ( track.start >= byStart[ idx ].start ) {
+      
+      
+      
+      alert("testing in track event");
+      
+      
+      
         byStart.splice( idx + 1, 0, track );
         break;
       }
@@ -1192,10 +1199,12 @@
     });
 
     var pluginFn = function( setup, options ) {
-
+//----------------------------------------------------------------------------------------------------------------
       if ( !options ) {
         return this;
       }
+      
+      //alert("testing");
 
       //  Storing the plugin natives
       var natives = options._natives = {},
@@ -1280,6 +1289,8 @@
 
       return this;
     };
+
+//----------------------------------------------------------------------------------------------------------------------
 
     //  Assign new named definition
     plugin[ name ] = function( options ) {
