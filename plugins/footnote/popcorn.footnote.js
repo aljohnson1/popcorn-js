@@ -65,7 +65,8 @@
      * options variable
      */
     start: function(event, options){
-      options._container.style.display = "inline";
+       options._container.style.display = "inline";
+       
     },
     /**
      * @member footnote 
@@ -78,8 +79,20 @@
     },
     _teardown: function( options ) {
       document.getElementById( options.target ) && document.getElementById( options.target ).removeChild( options._container );
+    },
+    
+    _pause: function(event, options) {
+        if(options != undefined && options.pause > 0){
+            if(!Popcorn.instances[0].video.paused){
+              window.setTimeout(function(){
+              Popcorn.instances[0].play();
+              }, options.pause * 1000 );
+              Popcorn.instances[0].pause();
+            }
+        }
     }
   });
+    
 });
 
 })( Popcorn );

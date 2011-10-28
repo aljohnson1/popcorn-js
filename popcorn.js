@@ -441,6 +441,7 @@
       Popcorn.addTrackEvent( this, {
         start: time,
         end: time + 1,
+        pause: time,
         _running: false,
         _natives: {
           start: fn || Popcorn.nop,
@@ -622,7 +623,6 @@
         return this;
       },
       listen: function( type, fn ) {
-
         var self = this,
             hasEvents = true,
             eventHook = Popcorn.events.hooks[ type ],
@@ -967,6 +967,7 @@
       while ( tracks.byStart[ start ] && tracks.byStart[ start ].start <= currentTime ) {
 
         byStart = tracks.byStart[ start ];
+        var byPause = byStart;        
         natives = byStart._natives;
         type = natives && natives.type;
 
@@ -980,16 +981,9 @@
                   obj.data.disabled.indexOf( type ) === -1 ) {
 
             byStart._running = true;
-            
-            if ( byStart.pause ) {
-              window.setTimeout(function(){
-               obj.play();
-              }, byStart.pause * 1000 );
-              obj.pause();
-            }
-            
-                                 
+                                             
             natives.start.call( obj, event, byStart );
+            natives._pause.call(obj,event,byPause);
 
             // If the `frameAnimation` option is used,
             // push the current byStart object into the `animating` cue
@@ -999,7 +993,8 @@
               animating.push( byStart );
             }
           }
-          start++;
+  
+            start++;
         } else {
           // remove track event
           Popcorn.removeTrackEvent( obj, byStart._id );
@@ -1196,7 +1191,6 @@
       if ( !options ) {
         return this;
       }
-alert(options);
       //  Storing the plugin natives
       var natives = options._natives = {},
           compose = "",
@@ -1236,10 +1230,11 @@ alert(options);
       //  Checks for expected properties
       if ( !( "start" in options ) ) {
         options.start = 0;
-        
                
       }
-
+       if( !( "pause" in options)){
+        options.pause = 0;
+      }
       if ( !( "end" in options ) ) {
         options.end = this.duration() || Number.MAX_VALUE;
       }
