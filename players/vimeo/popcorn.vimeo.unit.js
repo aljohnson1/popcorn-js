@@ -45,7 +45,7 @@ test( "Update Timer", function() {
       forwardEnd    = false,
       backwardStart = false,
       backwardEnd   = false,
-      wrapperRunning = { one: false, two: false, };
+      wrapperRunning = { one: false, two: false };
 
   function plus() {
     if ( ++count === expects ) {
@@ -108,12 +108,6 @@ test( "Update Timer", function() {
           ok( forwardEnd, "forward's end fired" );
           plus();
         }
-<<<<<<< HEAD
-      };
-    })();
-  }
-  
-=======
       }
     };
   });
@@ -244,8 +238,6 @@ test( "Plugin Factory", function() {
       // 15*2+2+2. executor/complicator each do 15
       expects = 34,
       count = 0;
-
->>>>>>> 7dda833aacf47d7496a6009af7c8ef8d60a947b6
   function plus() {
     if ( ++count == expects ) {
       Popcorn.removePlugin( "executor" );
@@ -285,7 +277,7 @@ test( "Plugin Factory", function() {
 
         ok( "trackEvents" in this.data, "executor instance has `trackEvents` property" );
         plus();
-        ok( Object.prototype.toString.call( popped.data.trackEvents ) === "[object Object]", "executor trackEvents property is an object" )
+        ok( Object.prototype.toString.call( popped.data.trackEvents ) === "[object Object]", "executor trackEvents property is an object" );
         plus();
       },
       end: function() {
@@ -331,7 +323,7 @@ test( "Plugin Factory", function() {
 
       ok( "trackEvents" in this.data, " complicatorinstance has `trackEvents` property" );
       plus();
-      ok( Object.prototype.toString.call( popped.data.trackEvents ) === "[object Object]", "complicator trackEvents property is an object" )
+      ok( Object.prototype.toString.call( popped.data.trackEvents ) === "[object Object]", "complicator trackEvents property is an object" );
       plus();
     },
     end: function() {
@@ -396,11 +388,11 @@ test( "Popcorn vimeo Plugin Url Regex Test", function() {
   var urlTests = [
     { name: "standard",
       url: "http://player.vimeo.com/video/6960892",
-      expected: "http://player.vimeo.com/video/6960892",
+      expected: "http://player.vimeo.com/video/6960892"
     },
     { name: "short url",
       url: "http://vimeo.com/6960892",
-      expected: "http://vimeo.com/6960892",
+      expected: "http://vimeo.com/6960892"
     }
   ];
 

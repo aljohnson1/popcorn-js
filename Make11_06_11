@@ -1,0 +1,76 @@
+Checking modules unit tests against JSLint...
+Linting ./modules/timeline-sources/popcorn.timeline-sources.unit.js
+JSLint check passed.
+Checking plugin unit tests against JSLint...
+Linting ./plugins/attribution/popcorn.attribution.unit.js
+JSLint check passed.
+Linting ./plugins/code/popcorn.code.unit.js
+JSLint check passed.
+Linting ./plugins/facebook/popcorn.facebook.unit.js
+JSLint check passed.
+Linting ./plugins/flickr/popcorn.flickr.unit.js
+JSLint check passed.
+Linting ./plugins/footnote/popcorn.footnote.unit.js
+JSLint check passed.
+Linting ./plugins/gml/popcorn.gml.unit.js
+JSLint check passed.
+Linting ./plugins/googlefeed/popcorn.googlefeed.unit.js
+JSLint check passed.
+Linting ./plugins/googlemap/popcorn.googlemap.unit.js
+JSLint check passed.
+Linting ./plugins/image/popcorn.image.unit.js
+JSLint check passed.
+Linting ./plugins/lastfm/popcorn.lastfm.unit.js
+JSLint check passed.
+Linting ./plugins/linkedin/popcorn.linkedin.unit.js
+JSLint check passed.
+Linting ./plugins/lowerthird/popcorn.lowerthird.unit.js
+JSLint check passed.
+Linting ./plugins/mustache/popcorn.mustache.unit.js
+JSLint check passed.
+Linting ./plugins/openmap/popcorn.openmap.unit.js
+JSLint check passed.
+Linting ./plugins/pause/popcorn.pause.unit.js
+JSLint check passed.
+Linting ./plugins/processing/popcorn.processing.unit.js
+JSLint check passed.
+Linting ./plugins/subtitle/popcorn.subtitle.unit.js
+JSLint check passed.
+Linting ./plugins/tagthisperson/popcorn.tagthisperson.unit.js
+JSLint check passed.
+Linting ./plugins/timeline/popcorn.timeline.unit.js
+JSLint check passed.
+Linting ./plugins/twitter/popcorn.twitter.unit.js
+JSLint check passed.
+Linting ./plugins/webpage/popcorn.webpage.unit.js
+JSLint check passed.
+Linting ./plugins/wikipedia/popcorn.wikipedia.unit.js
+JSLint check passed.
+Linting ./plugins/wordriver/popcorn.wordriver.unit.js
+JSLint check passed.
+Checking parser unit tests against JSLint...
+Linting ./parsers/parserJSON/popcorn.parserJSON.unit.js
+JSLint check passed.
+Linting ./parsers/parserSBV/popcorn.parserSBV.unit.js
+JSLint check passed.
+Linting ./parsers/parserSRT/popcorn.parserSRT.unit.js
+JSLint check passed.
+Linting ./parsers/parserSSA/popcorn.parserSSA.unit.js
+JSLint check passed.
+Linting ./parsers/parserTTML/popcorn.parserTTML.unit.js
+JSLint check passed.
+Linting ./parsers/parserTTXT/popcorn.parserTTXT.unit.js
+JSLint check passed.
+Linting ./parsers/parserVTT/popcorn.parserVTT.unit.js
+JSLint check passed.
+Linting ./parsers/parserXML/popcorn.parserXML.unit.js
+JSLint check passed.
+Checking player unit tests against JSLint...
+Linting ./players/soundcloud/popcorn.soundcloud.unit.js
+JSLint check passed.
+Linting ./players/vimeo/popcorn.vimeo.unit.js
+JSLint check passed.
+Linting ./players/youtube/popcorn.youtube.unit.js
+JSLint check passed.
+Checking effectsr unit tests against JSLint...
+completed

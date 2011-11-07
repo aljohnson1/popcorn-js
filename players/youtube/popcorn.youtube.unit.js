@@ -12,7 +12,7 @@ test("Update Timer", function () {
       forwardEnd    = false,
       backwardStart = false,
       backwardEnd   = false,
-      wrapperRunning = { one: false, two: false, };
+      wrapperRunning = { one: false, two: false };
 
   function plus() {
     if ( ++count === expects ) {
@@ -217,7 +217,7 @@ test("Plugin Factory", function () {
 
         ok( "trackEvents" in this.data, "executor instance has `trackEvents` property" );
         plus();
-        ok( Object.prototype.toString.call(popped.data.trackEvents) === "[object Object]", "executor trackEvents property is an object" )
+        ok( Object.prototype.toString.call(popped.data.trackEvents) === "[object Object]", "executor trackEvents property is an object" );
         plus();
       },
       end: function () {
@@ -263,7 +263,7 @@ test("Plugin Factory", function () {
 
       ok( "trackEvents" in this.data, " complicatorinstance has `trackEvents` property" );
       plus();
-      ok( Object.prototype.toString.call(popped.data.trackEvents) === "[object Object]", "complicator trackEvents property is an object" )
+      ok( Object.prototype.toString.call(popped.data.trackEvents) === "[object Object]", "complicator trackEvents property is an object" );
       plus();
     },
     end: function () {
@@ -328,28 +328,28 @@ test( "Popcorn YouTube Plugin Url Regex Test", function() {
   var urlTests = [
     { name: 'standard',
       url: 'http://www.youtube.com/watch?v=9oar9glUCL0',
-      expected: 'http://www.youtube.com/watch?v=9oar9glUCL0',
+      expected: 'http://www.youtube.com/watch?v=9oar9glUCL0'
     },
     { name: 'share url',
       url: 'http://youtu.be/9oar9glUCL0',
-      expected: 'http://youtu.be/9oar9glUCL0',
+      expected: 'http://youtu.be/9oar9glUCL0'
     },
     { name: 'long embed',
       url: 'http://www.youtube.com/embed/9oar9glUCL0',
-      expected: 'http://www.youtube.com/embed/9oar9glUCL0',
+      expected: 'http://www.youtube.com/embed/9oar9glUCL0'
     },
     { name: 'short embed 1 (e)',
       url: 'http://www.youtube.com/e/9oar9glUCL0',
-      expected: 'http://www.youtube.com/e/9oar9glUCL0',
+      expected: 'http://www.youtube.com/e/9oar9glUCL0'
     },
     { name: 'short embed 2 (v)',
       url: 'http://www.youtube.com/v/9oar9glUCL0',
-      expected: 'http://www.youtube.com/v/9oar9glUCL0',
+      expected: 'http://www.youtube.com/v/9oar9glUCL0'
     },
     { name: 'contains underscore',
       url: 'http://www.youtube.com/v/GP53b__h4ew',
-      expected: 'http://www.youtube.com/v/GP53b__h4ew',
-    },
+      expected: 'http://www.youtube.com/v/GP53b__h4ew'
+    }
   ];
 
   var count = 0,
