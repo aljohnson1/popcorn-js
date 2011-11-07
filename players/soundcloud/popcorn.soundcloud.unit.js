@@ -38,7 +38,7 @@ test( "API", function () {
         // Helper functions and members
         'setVolume' : 'function',
         'setCurrentTime' : 'function',
-        'timeupdate' : 'function',
+        //'timeupdate' : 'function',
         'registerPopcornWithPlayer' : 'function'
       };
       
@@ -82,7 +82,7 @@ test( "Default Attribute Functionality", function () {
         'height' : '81px',
         'top' : 0,
         'left' : 0,
-        'offsetHeight' : 81,
+        'offsetHeight' : 81
       };
       
   function plus() {
@@ -186,19 +186,16 @@ test( "Testing Comments", function() {
           api: {
             commentdiv: "commentOutput",
             commentformat: function( comment ) {
-              return comment.text
+              return comment.text;
             }
           }
         }),
         player3: Popcorn.soundcloud( "player_1", "http://soundcloud.com/forss/flickermood" )
-      }
+      };
       // Expecteed comment output
       commentOutput = {
         player1: function() {
-          return '<div><a href="Hyperlink">'
-                + '<img width="16px height="16px" src="Image"></img>'
-                + 'User 1</a> at 0.03 1 hour ago'
-                + '<br />Hi</span>';
+          return '<div><a href="Hyperlink">' + '<img width="16px height="16px" src="Image"></img>' + 'User 1</a> at 0.03 1 hour ago' + '<br />Hi</span>';
         },
         player2: function() {
           return "Hi";
@@ -228,9 +225,15 @@ test( "Testing Comments", function() {
     }
   };
   
-  players["player1"].addComment( comment );
-  players["player2"].addComment( comment );
-  players["player3"].addComment( comment, function( comment ) {
+  //players["player1"].addComment( comment );
+  players.player1.addComment(comment);
+  //players["player2"].addComment( comment );
+  players.player2.addComment(comment);
+  //players["player3"].addComment( comment, function( comment ) {
+  //  return comment.user.name + " @ " + comment.start + ": "+ comment.text; 
+  //});
+  
+  players.player3.addComment( comment, function( comment ) {
     return comment.user.name + " @ " + comment.start + ": "+ comment.text; 
   });
   
@@ -330,7 +333,7 @@ test( "Events and Player Control", function () {
       
       ok( true, "Play was fired" );
       plus();
-    }
+    };
   })());
   
   player.addEventListener( "durationchange", function() {
@@ -367,7 +370,7 @@ test( "Events and Player Control", function () {
       
       ok( true, "Timeupdate was fired by dispatch" );
       plus();
-    }
+    };
   })());
   
   player.addEventListener( "volumechange", function() {
