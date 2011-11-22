@@ -18,14 +18,12 @@
      var p = Popcorn('#video')
         .pauseoptions({
           start: 5, // seconds
-          end: 15, // seconds
-          //text: 'Paust for disability',
-          //target: 'disdabilitydiv'
+          end: 15, // seconds       
         } )
    *
    */
-
-    Popcorn.plugin( "Disabilitypause", {
+Popcorn.forEach( [ "disabilitypause" ], function( name ) {
+    Popcorn.plugin( name, {
 
       manifest: {
         about: {
@@ -58,15 +56,14 @@
      * options variable
      */
     start: function( event, options ){
-
-      if ( !this.paused() ) { 
-
-        window.setTimeout(function() {
-
-          this.play(); 
-        }, options.pause * 1000 );
-
-        this.pause(); 
+       
+      if(options != undefined){
+        if(!this.paused()){          
+          window.setTimeout(function(){
+             Popcorn.instances[0].play();
+             }, options.pause * 1000 );
+              Popcorn.instances[0].pause();
+        }
       }
     },
     /**
@@ -76,6 +73,7 @@
      * options variable
      */
     end: function( event, options ){
-    },
+    }
   });
+});
 })( Popcorn );
