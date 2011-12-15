@@ -1091,7 +1091,7 @@
 
             byStart._running = true;
             natives.start.call( obj, event, byStart );
-
+            
             // If the `frameAnimation` option is used,
             // push the current byStart object into the `animating` cue
             if ( obj.options.frameAnimation &&
