@@ -17,19 +17,19 @@ test( "Core", function() {
   try {
     ok( Popcorn, "Popcorn exists" );
     plus();
-  } catch ( e ) {};
+  } catch ( e ) {}
 
   try {
     ok( typeof Popcorn === "function", "Popcorn is a function" );
     plus();
-  } catch ( e ) {};
+  } catch ( e ) {}
 
   try {
     Popcorn( function() {
       ok( 1, "Popcorn calls its function argument" );
       plus();
     });
-  } catch ( e ) {};
+  } catch ( e ) {}
 });
 
 test( "noConflict", function() {
@@ -175,7 +175,7 @@ test( "Popcorn.getTrackEvent", function() {
   popcorn.temp({
     id: "asdf",
     start: 1,
-    end: 2,
+    end: 2
   });
 
   equal( typeof Popcorn.getTrackEvent( popcorn, "asdf" ), "object", "Popcorn.getTrackEvent() returns an object" );
@@ -381,7 +381,7 @@ test( "guid", function() {
 
   guids = [];
 
-  for ( var i = 0; i < count; i++ ) {
+  for ( i = 0; i < count; i++ ) {
 
     temp = Popcorn.guid( "pre" );
 
@@ -408,7 +408,7 @@ test( "isArray", function() {
   slowSmall.length = 0;
   slow.slow = 0;
 
-  all = [ [], [ 1 ], new Array, Array( 0 ), "abc".match( /(a)/g ), slow, slowSmall ];
+  all = [ [], [ 1 ], Array[0], Array( 0 ), "abc".match( /(a)/g ), slow, slowSmall ];
 
   all.forEach(function( a ) {
     ok( Popcorn.isArray( a ), "Popcorn.isArray(" + JSON.stringify( a ) + ")" );
@@ -425,7 +425,7 @@ test( "isArray", function() {
   ok( !Popcorn.isArray( Math.PI ), "!Popcorn.isArray(Math.PI), false" );
   ok( !Popcorn.isArray( true ), "!Popcorn.isArray(true), false" );
   ok( !Popcorn.isArray( false ), "!Popcorn.isArray(false), false" );
-  ok( !Popcorn.isArray( { __proto__: Array.prototype, length:1, 0:1, 1:2 } ), "{__proto__: Array.prototype, length:1, 0:1, 1:2}" );
+  ok( !Popcorn.isArray( { ___proto___: Array.prototype, length:1, 0:1, 1:2 } ), "{___proto___: Array.prototype, length:1, 0:1, 1:2}" );
 });
 
 test( "Protected", function() {
@@ -654,7 +654,7 @@ test( "exec", function() {
   stop( 10000 );
 
   popped.exec( 4, function() {
-    ok( loop < 2, "exec callback fired " + ++loop );
+    ok( loop < 2, "exec callback fired " + (++loop) );
     plus();
 
     if ( !hasLooped ) {
@@ -836,7 +836,7 @@ test( "Popcorn.extend", function() {
     equal( dest.hasOwnProperty( prop ), true, "{dest} has property: " + prop );
   }
 
-  equal( typeof dest[ "key13" ], "function", "dest[key13] is a function" );
+  equal( typeof dest[ key13 ], "function", "dest[key13] is a function" );
 
   dest = {};
 
@@ -850,14 +850,14 @@ test( "Popcorn.extend", function() {
     equal( dest.hasOwnProperty( prop ), true, "{dest} has property: " + prop + ", when extending 2 objects" );
   }
 
-  equal( typeof dest[ "key13" ], "function","dest[key13] is a function" );
+  equal( typeof dest[ key13 ], "function","dest[key13] is a function" );
 
-  equal( typeof dest[ "key23" ], "function","dest[key23] is a function" );
+  equal( typeof dest[ key23 ], "function","dest[key23] is a function" );
 });
 
 test( "Popcorn.events", function() {
 
-  QUnit.reset()
+  QUnit.reset();
   expect( 43 );
 
   var eventTypes = [ "UIEvents", "MouseEvents", "Events" ],
@@ -869,7 +869,7 @@ test( "Popcorn.events", function() {
       okay = true;
 
   eventTypes.forEach (function( e ) {
-    ok( Popcorn.Events[ e ], e + " Exists" )
+    ok( Popcorn.Events[ e ], e + " Exists" );
   });
 
   natives = Popcorn.Events[ eventTypes[ 0 ] ] + " " + Popcorn.Events[ eventTypes[ 1 ] ] + " " + Popcorn.Events[ eventTypes[ 2 ] ];
@@ -1260,7 +1260,7 @@ test( "Stored By Type", function() {
 
   QUnit.reset();
 
-  expect( 6 )
+  expect( 6 );
 
   var p = Popcorn( "#video" ),
       count = 0,
@@ -1275,7 +1275,7 @@ test( "Stored By Type", function() {
 
       p.unlisten( "play" );
 
-      ok( !p.data.events[ "play" ], "play handlers removed" );
+      ok( !p.data.events.play, "play handlers removed" );
 
       start();
     }
@@ -1334,7 +1334,7 @@ test( "Simulated", function() {
   expect( expects );
 
   function plus(){
-    if ( ++count == expects ) start();
+    if ( ++count == expects ){ start();}
   }
 
   stop( 10000 );
@@ -1885,7 +1885,7 @@ test( "Update Timer (timeupdate)", function() {
       backwardEnd = false,
       wrapperRunning = {
         one: false,
-        two: false,
+        two: false
       };
 
   function plus() {
@@ -2056,7 +2056,7 @@ test( "Update Timer (frameAnimation)", function() {
       backwardEnd = false,
       wrapperRunning = {
         one: false,
-        two: false,
+        two: false
       };
 
   function plus() {
@@ -2238,7 +2238,7 @@ test( "timeUpdate add track event while paused", function() {
     };
   });
 
-  $pop.currentTime( 1 ).pause()
+  $pop.currentTime( 1 ).pause();
 
   $pop.timeUpdateTester({
     start: 1,
@@ -2292,7 +2292,7 @@ test( "Plugin Factory", function () {
 
         ok( "trackEvents" in this.data, "executor instance has `trackEvents` property" );
         plus();
-        ok( Object.prototype.toString.call( popped.data.trackEvents ) === "[object Object]", "executor trackEvents property is an object" )
+        ok( Object.prototype.toString.call( popped.data.trackEvents ) === "[object Object]", "executor trackEvents property is an object" );
         plus();
       },
       end: function() {
@@ -2334,7 +2334,7 @@ test( "Plugin Factory", function () {
 
       ok( "trackEvents" in this.data, " complicatorinstance has `trackEvents` property" );
       plus();
-      ok( Object.prototype.toString.call( popped.data.trackEvents ) === "[object Object]", "complicator trackEvents property is an object" )
+      ok( Object.prototype.toString.call( popped.data.trackEvents ) === "[object Object]", "complicator trackEvents property is an object" );
       plus();
     },
     end: function() {
@@ -2954,6 +2954,7 @@ test( "Protected Names", function() {
   var keys = [],
       len,
       count = 0,
+      item,
       popped = Popcorn( "#video" );
 
   for ( item in Popcorn.p ) {
@@ -2979,7 +2980,7 @@ test( "Protected Names", function() {
     } catch ( e ) {
       ok( name, "Attempting to overwrite '" + name + "' threw an exception " );
       plus();
-    };
+    }
   });
 
   stop();
@@ -3120,7 +3121,7 @@ test( "Functions", function() {
 
   trackEvents = popped.getTrackEvents();
 
-  equal( trackEvents.length, 2, "2 user created trackEvents returned by popped.getTrackEvents()" )
+  equal( trackEvents.length, 2, "2 user created trackEvents returned by popped.getTrackEvents()" );
 
   ok( ffTrackId !== rwTrackId, "Track Events have different ids" );
 
@@ -3150,7 +3151,7 @@ test( "Functions", function() {
 
   trackEvents = popped.getTrackEvents();
 
-  equal( trackEvents.length, 2, "2 user created trackEvents returned by popped.getTrackEvents()" )
+  equal( trackEvents.length, 2, "2 user created trackEvents returned by popped.getTrackEvents()" );
 
   popped.rw({
     id: "my-track-id",
@@ -3285,7 +3286,7 @@ test( "Index Integrity ( removing tracks )", function() {
 
 test( "Index Integrity ( timeUpdate )", function() {
 
-  var $pop = Popcorn( "#video" );
+  var $pop = Popcorn( "#video" ),
       count = 0,
       expects = 8;
 
@@ -3515,7 +3516,7 @@ test( "Text Response", function() {
 
   expect( expects );
 
-  stop()
+  stop();
 
   Popcorn.xhr({
     url: "data/test.txt",
@@ -3543,7 +3544,7 @@ test( "dataType: Text Response", function() {
 
   expect( expects );
 
-  stop()
+  stop();
 
   Popcorn.xhr({
     url: "data/test.txt",
@@ -3637,7 +3638,7 @@ test( "JSON Response", function() {
 
   expect( expects );
 
-  stop()
+  stop();
 
   var testObj = {
         "data": {
@@ -3672,7 +3673,7 @@ test( "dataType: JSON Response", function() {
 
   expect( expects );
 
-  stop()
+  stop();
 
   var testObj = {
         "data": {
@@ -3788,7 +3789,7 @@ test( "Popcorn.getScript()", function() {
   function plus() {
     if ( ++count === expects ) {
       start();
-      delete window[ "testFunction" ];
+      delete window[ testFunction ];
     }
   }
 
@@ -3833,7 +3834,7 @@ test( "Popcorn.getScript()", function() {
       ok( ( "has" in window ) , "Popcorn.getScript https://github.com/rwldrn/has.js/raw/master/has.js loaded: `has` is available" );
       plus();
 
-      delete window[ "has" ];
+      delete window[ has ];
     }
   );
 
@@ -3845,7 +3846,7 @@ test( "Popcorn.getScript()", function() {
       ok( false, "testFunction called by plugin id#: " + id );
       plus();
     }
-  }
+  };
 
   Popcorn.getScript( "data/testfunction.js", function() { cb( 1 ); } );
   Popcorn.getScript( "data/testfunction.js", function() { cb( 2 ); } );
@@ -3864,7 +3865,7 @@ test( "XML Response", function() {
 
   expect( expects );
 
-  stop()
+  stop();
 
   Popcorn.xhr({
     url: "data/test.xml",
@@ -3896,7 +3897,7 @@ test( "dataType: XML Response", function() {
   }
 
   expect( expects );
-  stop()
+  stop();
 
   Popcorn.xhr({
     url: "data/test.xml",
