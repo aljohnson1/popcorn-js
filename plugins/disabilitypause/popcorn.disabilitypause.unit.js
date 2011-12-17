@@ -73,7 +73,6 @@ test( "Popcorn Disabilitypause Plugin", function() {
   popcorn.exec( 20, function() {
     time = new Date();
     pauseStarted = time.getSeconds();
-    //alert("second pause " + time.getSeconds());
     ok(popcorn.paused(),"The video should be paused for a second time");
     plus();
   });
