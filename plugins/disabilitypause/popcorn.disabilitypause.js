@@ -61,8 +61,8 @@ Popcorn.forEach( [ "disabilitypause" ], function( name ) {
         if(!this.paused()){          
           window.setTimeout(function(){
              Popcorn.instances[0].play();
-             }, options.pause * 1000 );
-              Popcorn.instances[0].pause();
+          }, options.pause * 1000 );
+          Popcorn.instances[0].pause();
         }
       }
     },
